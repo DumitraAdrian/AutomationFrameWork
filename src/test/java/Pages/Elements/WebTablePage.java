@@ -57,13 +57,20 @@ public WebTablePage(WebDriver driver) {
         Integer actualtablesize=actualentries.size();
 //        addButton.click();
         elementsMethods.clickElement(addButtton);
-        firstname.sendKeys(firstnamevalue);
-        lastname.sendKeys(lastnamevalue);
-        email.sendKeys(emailvalue);
-        age.sendKeys(agevalue);
-        salary.sendKeys(salaryvalue);
-        departament.sendKeys(departamentvalue);
-        submit.click();
+        elementsMethods.fillElement(firstname,firstnamevalue);
+        elementsMethods.fillElement(lastname,lastnamevalue);
+        elementsMethods.fillElement(email,emailvalue);
+        elementsMethods.fillElement(age,agevalue);
+        elementsMethods.fillElement(salary,salaryvalue);
+        elementsMethods.fillElement(departament,departamentvalue);
+        elementsMethods.clickElement(submit);
+//        firstname.sendKeys(firstnamevalue);
+//        lastname.sendKeys(lastnamevalue);
+//        email.sendKeys(emailvalue);
+//        age.sendKeys(agevalue);
+//        salary.sendKeys(salaryvalue);
+//        departament.sendKeys(departamentvalue);
+//        submit.click();
 
         validatenewentry(actualtablesize,firstnamevalue,lastnamevalue,emailvalue,agevalue,salaryvalue,departamentvalue);
     }

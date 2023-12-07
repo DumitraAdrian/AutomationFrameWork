@@ -145,9 +145,11 @@ public PracticeFormsPage(WebDriver driver) {
     }
 
     public void fillCity(String cityValue){
-        city.click();
-        selectCity.sendKeys(cityValue);
-        selectCity.sendKeys(Keys.ENTER);
+        elementsMethods.clickElement(city);
+        elementsMethods.fillElement(selectCity,cityValue,Keys.ENTER);
+//        city.click();
+//        selectCity.sendKeys(cityValue);
+//        selectCity.sendKeys(Keys.ENTER);
     }
 
     public void fillSubmit(){
