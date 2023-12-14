@@ -1,5 +1,6 @@
 package Pages.Forms;
 
+import ObjectData.FormTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
@@ -14,16 +15,16 @@ import java.util.Locale;
 
 public class PracticeFormsPage extends BasePage {
 
-//    public WebDriver driver;
+    //    public WebDriver driver;
 //
 //    public PracticeFormsPage(WebDriver driver) {
 //        this.driver = driver;
 //        PageFactory.initElements(driver,this);
 //
 //    }
-public PracticeFormsPage(WebDriver driver) {
-    super(driver);
-}
+    public PracticeFormsPage(WebDriver driver) {
+        super(driver);
+    }
 
     @FindBy(id = "firstName")
     private WebElement firstName;
@@ -38,7 +39,7 @@ public PracticeFormsPage(WebDriver driver) {
     private WebElement gender;
 
     @FindBy(id = "userNumber")
-    private  WebElement mobile;
+    private WebElement mobile;
 
     @FindBy(id = "subjectsInput")
     private WebElement subjects;
@@ -47,7 +48,7 @@ public PracticeFormsPage(WebDriver driver) {
     private WebElement Sports;
 
     @FindBy(id = "currentAddress")
-    private  WebElement address;
+    private WebElement address;
 
     @FindBy(id = "state")
     private WebElement state;
@@ -74,68 +75,81 @@ public PracticeFormsPage(WebDriver driver) {
     private WebElement close;
 
 
+//    public void fillPracticeForm(String firstname,String lastname,String email,String mobile,
+//                                 String subjects,String address,String state,String city){
+////        fillFirstName(firstname);
+////        fillLastName(lastname);
+////        fillemail(email);
 
-    public void fillPracticeForm(String firstname,String lastname,String email,String mobile,
-                                 String subjects,String address,String state,String city){
-        fillFirstName(firstname);
-        fillLastName(lastname);
-        fillemail(email);
+    public void fillPracticeForm(FormTableObject formTableObject) {
+        fillFirstName(formTableObject.getFirstNamevalue());
+        fillLastName(formTableObject.getLastNameValue());
+        fillemail(formTableObject.getEmailValue());
         fillgender();
-        fillmobile(mobile);
-        fillsubjects(subjects);
+        fillmobile(formTableObject.getMobileValue());
+        fillsubjects(formTableObject.getSubjectsValue());
+        elementsMethods.scrollBypixels(0,450);
         fillsports();
-        filladress(address);
-        fillState(state);
-        fillCity(city);
+        filladress(formTableObject.getAddressValue());
+        fillState(formTableObject.getStateValue());
+        fillCity(formTableObject.getCityValue());
+
+        //        fillmobile(mobile);
+//        fillsubjects(subjects);
+//        fillsports();
+//        filladress(address);
+//        fillState(state);
+//        fillCity(city);
     }
 
-    public List<String> getValuesForm(){
-        List<String> formValues=new ArrayList<>();
+
+    public List<String> getValuesForm() {
+        List<String> formValues = new ArrayList<>();
         formValues.add(gender.getText());
         formValues.add(Sports.getText());
         return formValues;
     }
 
-    public void fillFirstName(String firstNamevalue){
-        elementsMethods.fillElement(firstName,firstNamevalue);
+    public void fillFirstName(String firstNamevalue) {
+        elementsMethods.fillElement(firstName, firstNamevalue);
 //        firstName.sendKeys(firstNamevalue);
     }
 
-    public void fillLastName(String lastNameValue){
+    public void fillLastName(String lastNameValue) {
         lastName.sendKeys(lastNameValue);
     }
 
-    public void fillemail(String emailValue){
+    public void fillemail(String emailValue) {
         email.sendKeys(emailValue);
     }
 
-    public void fillgender(){
+    public void fillgender() {
         elementsMethods.clickElement(gender);
 //        gender.click();
     }
 
-    public void fillmobile(String mobileValue){
+    public void fillmobile(String mobileValue) {
         mobile.sendKeys(mobileValue);
     }
 
-    public void fillsubjects(String subjectsValue){
-        elementsMethods.fillElement(subjects,subjectsValue,Keys.ENTER);
+    public void fillsubjects(String subjectsValue) {
+        elementsMethods.fillElement(subjects, subjectsValue, Keys.ENTER);
 //        subjects.sendKeys(subjectsValue);
 //        subjects.sendKeys(Keys.ENTER);
     }
 
-    public void fillsports(){
+    public void fillsports() {
         Sports.click();
     }
 
-    public void filladress(String addressValue){
+    public void filladress(String addressValue) {
         address.sendKeys(addressValue);
     }
 
-    public void fillState(String stateValue){
-        elementsMethods.scrollBypixels(0,450);
-        elementsMethods.clickElement(state);
-        elementsMethods.fillElement(selectstate,stateValue,Keys.ENTER);
+    public void fillState(String stateValue) {
+        elementsMethods.scrollBypixels(0, 450);
+        elementsMethods.clicjJSElement(state);
+        elementsMethods.fillElement(selectstate, stateValue, Keys.ENTER);
 
 //        JavascriptExecutor jse = (JavascriptExecutor) driver;
 //        jse.executeScript("window.scrollBy(0,450)");
@@ -144,39 +158,39 @@ public PracticeFormsPage(WebDriver driver) {
 //        selectstate.sendKeys(Keys.ENTER);
     }
 
-    public void fillCity(String cityValue){
-        elementsMethods.clickElement(city);
-        elementsMethods.fillElement(selectCity,cityValue,Keys.ENTER);
+    public void fillCity(String cityValue) {
+        elementsMethods.clicjJSElement(city);
+        elementsMethods.fillElement(selectCity, cityValue, Keys.ENTER);
 //        city.click();
 //        selectCity.sendKeys(cityValue);
 //        selectCity.sendKeys(Keys.ENTER);
     }
 
-    public void fillSubmit(){
+    public void fillSubmit() {
         elementsMethods.clicjJSElement(submit);
 //        JavascriptExecutor jse = (JavascriptExecutor) driver;
 //        jse.executeScript("arguments[0].click();", submit);
     }
 
-    public void clickClose(){
+    public void clickClose() {
         close.sendKeys(Keys.ENTER);
     }
 
-    public void validatePracticeForm(String expectedMessage,String firstNamevalue,String lastNameValue,
-                                     String emailValue,String genderValue,String mobileValue,String subjectsValue,
-                                     String SportsValue,String addressValue,String stateValue,String cityValue){
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern( "dd MMMM,yyyy", Locale.ENGLISH );
+    public void validatePracticeForm(String expectedMessage, String firstNamevalue, String lastNameValue,
+                                     String emailValue, String genderValue, String mobileValue, String subjectsValue,
+                                     String SportsValue, String addressValue, String stateValue, String cityValue) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd MMMM,yyyy", Locale.ENGLISH);
         LocalDateTime now = LocalDateTime.now();
 //        System.out.println(dtf.format(now));
-        String dateofbirthValue=dtf.format(now);
+        String dateofbirthValue = dtf.format(now);
 
-        elementsMethods.ValidateElementMessage(thanksMessage,expectedMessage);
+        elementsMethods.ValidateElementMessage(thanksMessage, expectedMessage);
 
 //        String actualMessege=thanksMessage.getText();
 //        Assert.assertEquals(actualMessege,expectedMessage);
 
         Assert.assertTrue(validationTable.get(0).getText().contains("Student Name"));
-        Assert.assertTrue(validationTable.get(0).getText().contains(firstNamevalue + " " +lastNameValue));
+        Assert.assertTrue(validationTable.get(0).getText().contains(firstNamevalue + " " + lastNameValue));
 
         Assert.assertTrue(validationTable.get(1).getText().contains("Student Email"));
         Assert.assertTrue(validationTable.get(1).getText().contains(emailValue));
@@ -200,6 +214,6 @@ public PracticeFormsPage(WebDriver driver) {
         Assert.assertTrue(validationTable.get(8).getText().contains(addressValue));
 
         Assert.assertTrue(validationTable.get(9).getText().contains("State and City"));
-        Assert.assertTrue(validationTable.get(9).getText().contains(stateValue + " " +cityValue));
+        Assert.assertTrue(validationTable.get(9).getText().contains(stateValue + " " + cityValue));
     }
 }

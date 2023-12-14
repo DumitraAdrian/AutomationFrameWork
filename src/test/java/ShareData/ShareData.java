@@ -11,7 +11,7 @@ import java.time.Duration;
 public class ShareData {
 
     private WebDriver driver;
-    @BeforeMethod
+//    @BeforeMethod
     public void setup(){
 
         driver = new ChromeDriver();
@@ -25,7 +25,7 @@ public class ShareData {
 
 
     }
-    @AfterMethod
+//    @AfterMethod
     public void clear(){
         driver.quit();
     }
