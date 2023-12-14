@@ -1,5 +1,6 @@
 package Pages.AleryFrameWindow;
 
+import ObjectData.AlertObject;
 import Pages.BasePage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -24,7 +25,7 @@ public AlertPage(WebDriver driver) {
     super(driver);
 }
     @FindBy(id="alertButton")
-    private WebElement alertButton;
+    private WebElement alertButtonOK;
 
     @FindBy(id="timerAlertButton")
     private WebElement alertDelayButton;
@@ -33,19 +34,19 @@ public AlertPage(WebDriver driver) {
     private WebElement alertOkCancelButton;
 
     @FindBy(id="promtButton")
-    private WebElement alertValueButton;
+    private WebElement promptAlertValueButton;
 
 
 
     public void interractAlertOK(){
-        alertButton.click();
+        elementsMethods.clickElement(alertButtonOK);
         alertMethods.AcceptAlert();
 //        Alert alertOK=driver.switchTo().alert();
 //        alertOK.accept();
     }
 
     public void interractAlertDelay(){
-        alertDelayButton.click();
+        elementsMethods.clickElement(alertDelayButton);
         alertMethods.AcceptAlert();
 
 //        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -55,14 +56,14 @@ public AlertPage(WebDriver driver) {
     }
     public void interractAlertDismiss(){
 
-        alertOkCancelButton.click();
+        elementsMethods.clickElement(alertDelayButton);
         alertMethods.CancelAlert();
 //        Alert alertOKcancel=driver.switchTo().alert();
 //        alertOKcancel.dismiss();
     }
-    public void interractAlertValue(String value){
-        alertValueButton.click();
-        alertMethods.fillAlert(value);
+    public void interractPromptAlertValue(AlertObject alertObject){
+        elementsMethods.clickElement(promptAlertValueButton);
+        alertMethods.fillAlert(alertObject.getPromptAlertValue());
 //        Alert alertValue=driver.switchTo().alert();
 //        alertValue.sendKeys(value);
 //        alertValue.accept();

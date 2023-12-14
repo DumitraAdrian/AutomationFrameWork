@@ -1,19 +1,27 @@
 package Tests;
 
+import ObjectData.AlertObject;
 import Pages.AleryFrameWindow.AlertFrameWindowPage;
 import Pages.AleryFrameWindow.AlertPage;
 import Pages.HomePage;
 import ShareData.ShareData;
+import ShareData.Hooks;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-public class AlertTest extends ShareData {
+public class AlertTest extends Hooks {
 
 
     @Test
     public void metoda_test() {
 
+        AlertObject alertObject=new AlertObject(testData);
+
         HomePage homePage=new HomePage(getDriver());
         homePage.clickAlertFrameWindow();
+
+        JavascriptExecutor JS=(JavascriptExecutor)getDriver();
+        JS.executeScript("window.scroll(0,450)", "");
 
         AlertFrameWindowPage alertFrameWindowPage=new AlertFrameWindowPage(getDriver());
         alertFrameWindowPage.clickAlerts();
@@ -22,7 +30,7 @@ public class AlertTest extends ShareData {
         alertPage.interractAlertOK();
         alertPage.interractAlertDelay();
         alertPage.interractAlertDismiss();
-        alertPage.interractAlertValue("text");
+        alertPage.interractPromptAlertValue(alertObject);
 
 
 
