@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import Logger.LoggerUtility;
 import ObjectData.WebTableDataObject;
 import Pages.BasePage;
 import org.openqa.selenium.By;
@@ -57,13 +58,21 @@ public WebTablePage(WebDriver driver) {
         Integer actualtablesize=actualentries.size();
 //        addButton.click();
         elementsMethods.clickElement(addButtton);
+        LoggerUtility.info("The user click add Button");
         elementsMethods.fillElement(firstname,webTableDataObject.getFirstnamevalue());
+        LoggerUtility.info("The user fill first name");
         elementsMethods.fillElement(lastname,webTableDataObject.getLastnamevalue());
+        LoggerUtility.info("The user fill last name");
         elementsMethods.fillElement(email,webTableDataObject.getEmailvalue());
+        LoggerUtility.info("The user fill email");
         elementsMethods.fillElement(age,webTableDataObject.getAgevalue());
+        LoggerUtility.info("The user fill age");
         elementsMethods.fillElement(salary,webTableDataObject.getSalaryvalue());
+        LoggerUtility.info("The user fill salary");
         elementsMethods.fillElement(departament,webTableDataObject.getDepartamentvalue());
+        LoggerUtility.info("The user fill departament");
         elementsMethods.clickElement(submit);
+        LoggerUtility.info("The user click on submit");
 //        firstname.sendKeys(firstnamevalue);
 //        lastname.sendKeys(lastnamevalue);
 //        email.sendKeys(emailvalue);

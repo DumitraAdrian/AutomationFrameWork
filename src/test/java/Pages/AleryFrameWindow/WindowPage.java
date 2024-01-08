@@ -1,5 +1,6 @@
 package Pages.AleryFrameWindow;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,8 +33,11 @@ public WindowPage(WebDriver driver) {
         newTabButton.click();
 
         windowMetdods.swichtospecificwindow(1);
+        LoggerUtility.info("The user switched on specific Window(size 1)");
         windowMetdods.closecurrentwindow();
+        LoggerUtility.info("The user close current window");
         windowMetdods.swichtospecificwindow(0);
+        LoggerUtility.info("The user switched on specific Window(size 0)");
 
 //        System.out.println("url: " +driver.getCurrentUrl());
 //        List<String> tabs=new ArrayList<>(driver.getWindowHandles());//lista de taburi
@@ -47,8 +51,11 @@ public WindowPage(WebDriver driver) {
         newWindowButton.click();
 
         windowMetdods.swichtospecificwindow(1);
+        LoggerUtility.info("The user switched on specific Window(size 1)");
         windowMetdods.closecurrentwindow();
+        LoggerUtility.info("The user close current window");
         windowMetdods.swichtospecificwindow(0);
+        LoggerUtility.info("The user switched on specific Window(size 0)");
 
 //        System.out.println("url: " +driver.getCurrentUrl());
 //        List<String> windows=new ArrayList<>(driver.getWindowHandles());//lista de taburi

@@ -1,5 +1,6 @@
 package Pages.AleryFrameWindow;
 
+import Logger.LoggerUtility;
 import ObjectData.AlertObject;
 import Pages.BasePage;
 import org.openqa.selenium.Alert;
@@ -40,14 +41,18 @@ public AlertPage(WebDriver driver) {
 
     public void interractAlertOK(){
         elementsMethods.clickElement(alertButtonOK);
+        LoggerUtility.info("The user clicks on alertButton");
         alertMethods.AcceptAlert();
+        LoggerUtility.info("The user clicks on AcceptAlert");
 //        Alert alertOK=driver.switchTo().alert();
 //        alertOK.accept();
     }
 
     public void interractAlertDelay(){
         elementsMethods.clickElement(alertDelayButton);
+        LoggerUtility.info("The user clicks on alertDelayButton");
         alertMethods.AcceptAlert();
+        LoggerUtility.info("The user clicks on AcceptAlert");
 
 //        WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
 //        wait.until(ExpectedConditions.alertIsPresent());
@@ -57,12 +62,15 @@ public AlertPage(WebDriver driver) {
     public void interractAlertDismiss(){
 
         elementsMethods.clickElement(alertDelayButton);
+        LoggerUtility.info("The user clicks on alertDelayButton");
         alertMethods.CancelAlert();
+        LoggerUtility.info("The user clicks on CancelAlert");
 //        Alert alertOKcancel=driver.switchTo().alert();
 //        alertOKcancel.dismiss();
     }
     public void interractPromptAlertValue(AlertObject alertObject){
         elementsMethods.clickElement(promptAlertValueButton);
+        LoggerUtility.info("The user clicks on prompt alert button");
         alertMethods.fillAlert(alertObject.getPromptAlertValue());
 //        Alert alertValue=driver.switchTo().alert();
 //        alertValue.sendKeys(value);

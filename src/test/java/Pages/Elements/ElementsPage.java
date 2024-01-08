@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,6 +24,7 @@ public class ElementsPage extends BasePage {
 
     public void clickwebTables() {
         webTables.click();
+        LoggerUtility.info("The user click on the web tables");
     }
 }
 

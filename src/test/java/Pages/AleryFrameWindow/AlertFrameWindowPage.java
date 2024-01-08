@@ -1,5 +1,6 @@
 package Pages.AleryFrameWindow;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,16 +31,20 @@ public AlertFrameWindowPage(WebDriver driver) {
 
 
     public void clickFrames(){
+        elementsMethods.scrollBypixels(0,300);
         frame.click();
+        LoggerUtility.info("The user clicks on frames button");
     }
 
     public void clickAlerts(){
         alerts.click();
+        LoggerUtility.info("The user clicks on alert button");
 
         }
 
     public void clickwindow() {
         BrowserWindows.click();
+        LoggerUtility.info("The user clicks on window button");
     }
 
 }

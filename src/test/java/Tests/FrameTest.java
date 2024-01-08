@@ -4,9 +4,10 @@ import Pages.AleryFrameWindow.AlertFrameWindowPage;
 import Pages.AleryFrameWindow.FramePage;
 import Pages.HomePage;
 import ShareData.ShareData;
+import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-public class FrameTest extends ShareData {
+public class FrameTest extends Hooks {
 
 
     @Test
