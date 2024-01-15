@@ -5,19 +5,20 @@ import PropertyUtility.PropertyUtility;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 import java.time.Duration;
 import java.util.HashMap;
 
-public class EdgeBrowserService  extends BaseBrowserService implements BrowserService {
+public class FirefoxBrowserService  extends BaseBrowserService implements BrowserService {
 
     private WebDriver driver;
     @Override
     public void openBrowser(Boolean cicd) {
-        EdgeOptions edgeOptions= (EdgeOptions) prepareBrowserOption(cicd);
-        driver = new EdgeDriver(edgeOptions);
+        FirefoxOptions firefoxOptions= (FirefoxOptions) prepareBrowserOption(cicd);
+        driver = new FirefoxDriver(firefoxOptions);
         driver.get(getBrowserOptions().get("url"));
         driver.manage().window().maximize();
 
@@ -37,20 +38,20 @@ public class EdgeBrowserService  extends BaseBrowserService implements BrowserSe
     public Object prepareBrowserOption(Boolean cicd) {
 //        PropertyUtility propertyUtility = new PropertyUtility("Browser");
         HashMap<String,String> testData = getBrowserOptions();
-        EdgeOptions edgeOptions=new EdgeOptions();
+        FirefoxOptions firefoxOptions =new FirefoxOptions();
         if (cicd){
-            edgeOptions.addArguments("--headless");
-        }
-        if(!testData.get("--headless").isEmpty()){
-            edgeOptions.addArguments(testData.get("headless"));
+            firefoxOptions.addArguments("--headless");
+        }if(!testData.get("--headless").isEmpty()){
+            firefoxOptions.addArguments(testData.get("headless"));
         }
 
-        edgeOptions.addArguments(testData.get("gpu"));
-        edgeOptions.addArguments(testData.get("infobars"));
-        edgeOptions.addArguments(testData.get("sandbox"));
-        edgeOptions.addArguments(testData.get("resolution"));
-        return edgeOptions;
+        firefoxOptions.addArguments(testData.get("gpu"));
+        firefoxOptions.addArguments(testData.get("infobars"));
+        firefoxOptions.addArguments(testData.get("sandbox"));
+        firefoxOptions.addArguments(testData.get("resolution"));
+        return firefoxOptions;
     }
+
 
     public WebDriver getDriver() {
         return driver;
