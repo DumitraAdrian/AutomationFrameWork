@@ -41,7 +41,7 @@ public class EdgeBrowserService  extends BaseBrowserService implements BrowserSe
         if (cicd){
             edgeOptions.addArguments("--headless");
         }
-        if(!testData.get("--headless").isEmpty()){
+        if(!testData.get("headless").isEmpty()){
             edgeOptions.addArguments(testData.get("headless"));
         }
 

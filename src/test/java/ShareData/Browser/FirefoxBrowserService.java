@@ -41,7 +41,7 @@ public class FirefoxBrowserService  extends BaseBrowserService implements Browse
         FirefoxOptions firefoxOptions =new FirefoxOptions();
         if (cicd){
             firefoxOptions.addArguments("--headless");
-        }if(!testData.get("--headless").isEmpty()){
+        }if(!testData.get("headless").isEmpty()){
             firefoxOptions.addArguments(testData.get("headless"));
         }
 
