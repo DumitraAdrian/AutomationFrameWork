@@ -10,7 +10,7 @@ public class WindowTest extends ShareData {
 
 
     @Test
-    public void metoda_test() {
+    public void testMethod() {
 
 
 
@@ -18,7 +18,7 @@ public class WindowTest extends ShareData {
 //        AlertsFrameWindows.click();
 
         HomePage homePage=new HomePage(getDriver());
-        homePage.clickAlertFrameWindow();
+        homePage.clickAlertWindow();
 
 //        WebElement BrowserWindows = getDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
 //        BrowserWindows.click();

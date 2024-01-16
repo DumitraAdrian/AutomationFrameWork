@@ -18,7 +18,7 @@ public class AlertTest extends Hooks {
         AlertObject alertObject=new AlertObject(testData);
 
         HomePage homePage=new HomePage(getDriver());
-        homePage.clickAlertFrameWindow();
+        homePage.clickAlertWindow();
 
         JavascriptExecutor JS=(JavascriptExecutor)getDriver();
         JS.executeScript("window.scroll(0,450)", "");

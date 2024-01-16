@@ -29,7 +29,7 @@ public class HomePage extends BasePage {
     private WebElement elements;
 
 
-    public void clickAlertFrameWindow() {
+    public void clickAlertWindow() {
         AlertsFrameWindows.click();
         LoggerUtility.info("The user clicks on alert  AlertsFrameWindows");
     }
