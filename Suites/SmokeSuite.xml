@@ -3,6 +3,7 @@
     <test name = "Smoke Tests" thread-count="3" parallel = "classes">
         <classes>
             <class name="Tests.FormTableTest"/>
+            <class name="Tests.WindowTest"/>
             <class name="Tests.FrameTest"/>
             <class name="Tests.WebTableTest"/>
             <class name="Tests.AlertTest"/>

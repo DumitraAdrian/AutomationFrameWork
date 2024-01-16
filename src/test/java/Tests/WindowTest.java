@@ -3,10 +3,10 @@ package Tests;
 import Pages.AleryFrameWindow.AlertFrameWindowPage;
 import Pages.HomePage;
 import Pages.AleryFrameWindow.WindowPage;
-import ShareData.ShareData;
+import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-public class WindowTest extends ShareData {
+public class WindowTest extends Hooks {
 
 
     @Test
