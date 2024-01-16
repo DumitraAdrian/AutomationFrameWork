@@ -18,7 +18,7 @@ public class WindowTest extends ShareData {
 //        AlertsFrameWindows.click();
 
         HomePage homePage=new HomePage(getDriver());
-        homePage.clickAlertWindow();
+        homePage.clickAlertFrameWindow();
 
 //        WebElement BrowserWindows = getDriver().findElement(By.xpath("//span[text()='Browser Windows']"));
 //        BrowserWindows.click();

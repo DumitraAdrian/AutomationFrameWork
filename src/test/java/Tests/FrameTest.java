@@ -19,7 +19,7 @@ public class FrameTest extends Hooks {
 //        AlertsFrameWindows.click();
 
         HomePage homePage=new HomePage(getDriver());
-        homePage.clickAlertWindow();
+        homePage.clickAlertFrameWindow();
 
 //        WebElement frames = driver.findElement(By.xpath("//span[text()='Frames']"));
 //        frames.click();
